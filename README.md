@@ -36,7 +36,8 @@ Below are the external dependencies
 ## Available Scripts
 
 In the project directory, you can run:
-
+### `npm install`
+Install the node dependencies for the application
 ### `npm start`
 
 Runs the app in the development mode.\

@@ -1,6 +1,9 @@
 import axios from "axios";
 import {endpoint  } from "../constants/constant";
 
+/**
+ * Singleton class for the api class
+ */
 class EmployeeService {
     private URL_PARAM = 'http://localhost:4000';
     private static instance: EmployeeService;
