@@ -1,10 +1,15 @@
 # Work Motion App
 
 This is the Front End Application for the assignment for the WorkMotion. This is an employee dashboard with following Features
+        <br/>
     - Ability to show the employee data on the Home Page in a table
+        <br/>
     - Ability to search in the employee data
+        <br/>
     - Ability to create new employee (This is not part of assignment for demonstrating post call)
+        <br/>
     - Ability to retain the employee status
+        <br/>
 
 Following are the salient features of the Application 
     - Responsive for Desktop and Laptop
