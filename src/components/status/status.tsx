@@ -1,26 +1,40 @@
 import React, { useEffect, useState } from "react";
 import './status.css'
-import {employeeService} from "../../services/service";
+import {useEmployeeContext  } from "../../context/employeeContext";
 
+/**
+ * 
+ * @returns Array of employee status based on the user selection
+ */
 const Status = (props: any) => {
+    // possible value for the employee status
     const statusArray = ['ADDED', 'IN-CHECK', 'APPROVED', 'ACTIVE', 'INACTIVE'];
+    /**
+     * Hooks for the component
+     */
     const [selectedStatus, setSelectedStatus] = useState('');
+    const {setEmployeeStatus} = useEmployeeContext();
     useEffect(() => {
         if (props.status) {
             setSelectedStatus(props.status)
         }
     }, [])
+    /**
+     * This method saves the status of the empoyee 
+     * @param event Click Event
+     * @param item The text of the status 
+     */
     const statusClick = (event: any, item: any) => {
         setSelectedStatus(item);
-        employeeService.editEmployees(props.id,{
-            status:item   
+        setEmployeeStatus(props.id, {
+            status:item
         })
     }
 
     return (
         <div className="container">
             <div className="wrapper">
-                <div className="arrow-steps clearfix">
+                <div id="status-wrapper-container"className="arrow-steps clearfix">
                     {
                         statusArray.map((item: string, index: any) => {
                             return (

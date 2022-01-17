@@ -1,7 +1,26 @@
-# Getting Started with Create React App
+# Work Motion App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is the Front End Application for the assignment for the WorkMotion. This is an employee dashboard with following Features
+    - Ability to show the employee data on the Home Page in a table
+    - Ability to search in the employee data
+    - Ability to create new employee (This is not part of assignment for demonstrating post call)
+    - Ability to retain the employee status
 
+Following are the salient features of the Application 
+    - Responsive for Desktop and Laptop
+    - Uses the function component 
+    - Uses React Context to share the data 
+    - Uses Type Script
+    - Custom Css (no use of external CSS libraries)
+    - Routing 
+    - Unit test case coverage
+
+Below are the external dependencies
+    - React-icons for icons
+
+**Note**
+    - Supporting Api is to be run on port 4000
+    - This appication is best run with the supporting mock api set up
 ## Available Scripts
 
 In the project directory, you can run:

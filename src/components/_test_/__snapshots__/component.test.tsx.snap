@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[` component matches snapshot 1`] = `
+<div
+  className="container"
+>
+  <div
+    className="wrapper"
+  >
+    <div
+      className="arrow-steps clearfix"
+      id="status-wrapper-container"
+    >
+      <div
+        className="step"
+        id={0}
+        onClick={[Function]}
+      >
+         
+        <span>
+           
+          ADDED
+        </span>
+         
+      </div>
+      <div
+        className="step"
+        id={1}
+        onClick={[Function]}
+      >
+         
+        <span>
+           
+          IN-CHECK
+        </span>
+         
+      </div>
+      <div
+        className="step"
+        id={2}
+        onClick={[Function]}
+      >
+         
+        <span>
+           
+          APPROVED
+        </span>
+         
+      </div>
+      <div
+        className="step"
+        id={3}
+        onClick={[Function]}
+      >
+         
+        <span>
+           
+          ACTIVE
+        </span>
+         
+      </div>
+      <div
+        className="step"
+        id={4}
+        onClick={[Function]}
+      >
+         
+        <span>
+           
+          INACTIVE
+        </span>
+         
+      </div>
+    </div>
+  </div>
+</div>
+`;

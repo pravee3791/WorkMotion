@@ -1,48 +1,74 @@
 import React, { useEffect, useState } from 'react';
-import { employeeService } from "../services/service";
 import { Employee } from "../models/employee";
+import ErrorComponent from "./Error/error-component";
 import Status from "../components/status/status";
 import Search from "../components/search/search";
-
+import { useEmployeeContext } from "../context/employeeContext";
+/**
+ *  Home Component is the main page of the assignment and dispalys the employee information 
+ *  in the tabular form. 
+ *  Home page also edits the status of the employee
+ *  Search can also be performed on the Employee Table 
+ * @returns a Home Component that displays the employee rows in a table and stores the state of the employee
+ */
 function Home() {
-    const [employees, setEmployees] = useState([]);
-    const [employeesDisplayData, setEmployeeDisplayData] = useState([])
+    /**
+     * Hooks for the component
+     */
+    const [employeeState, setEmployeeState] = useState([] as Employee[]);
+    const { error, employee, getEmployee } = useEmployeeContext();
+
+    /**
+     * To ge the employee details on the page load
+     */
     useEffect(() => {
-        employeeService.getEmployees().then(res => {
-            setEmployees(res.data)
-            setEmployeeDisplayData(res.data)
-        })
+        getEmployee();
     }, [])
-    const employeeFilter = (val:string) => {
-        if(val != ''){
-            const filteredEmp = employees.filter((i:Employee)=>{
-                return  i.first_name.includes(val) || i.last_name.includes(val) 
+
+    /**
+     * To save the employee information in the context
+     */
+    useEffect(() => {
+        setEmployeeState(employee)
+    }, [employee])
+
+    /**
+     *  The method to filter the state and show the filtereed rows 
+     * @param val the string to be tested
+     */
+    const employeeFilter = (val: string) => {
+        if (val != '') {
+            const filteredEmp = employee.filter((i: Employee) => {
+                return i.first_name.includes(val) || i.last_name.includes(val)
             })
-            setEmployeeDisplayData(filteredEmp);
+            setEmployeeState(filteredEmp);
         }
-        else{
-            setEmployeeDisplayData(employees)
+        else {
+            setEmployeeState(employee)
         }
     }
     return (
         <>
-            <div className='home'>
+            {error && <ErrorComponent></ErrorComponent>}
+            {!error && <div className='home'>
                 <div className='home-search'>
                     <Search onChange={employeeFilter}></Search>
                 </div>
-                <div className='home-table'>
+                <div id="employee-table" className='home-table'>
                     <table>
-                        <tr>
-                            <th>Id</th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Gender</th>
-                            <th>Status</th>
-                            
-                        </tr>
-                        {employeesDisplayData.map((emp: Employee, index) => {
-                            return (<>
-                                <tbody>
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Gender</th>
+                                <th>Status</th>
+
+                            </tr>
+                        </thead>
+                        <tbody id='employee-table-body'>
+                            {employeeState.map((emp: Employee, index) => {
+                                return (
                                     <tr key={index}>
                                         <td>{emp.id}</td>
                                         <td>
@@ -51,15 +77,17 @@ function Home() {
                                         <td>{emp.email}</td>
                                         <td>{emp.gender}</td>
                                         <td>
-                                            <Status id={emp.id}status={emp.status}></Status>
+                                            <Status id={emp.id} status={emp.status}></Status>
                                         </td>
                                     </tr>
-                                </tbody>
-                            </>)
-                        })}
+
+                                )
+                            })}
+                        </tbody>
                     </table>
                 </div>
             </div>
+            }
         </>
     )
 }

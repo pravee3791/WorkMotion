@@ -20,3 +20,4 @@ export const statusArray = [
         status: 'INACTIVE'
     }
 ]
+export const endpoint = 'employees';

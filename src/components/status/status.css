@@ -1,5 +1,4 @@
-/* Global CSS, you probably don't need that */
-
+/*status component css */
 .clearfix:after {
     clear: both;
     content: "";
@@ -127,3 +126,4 @@ a:hover {
    font-size: 11px;
   }
 }
+/* Status component css ends*/

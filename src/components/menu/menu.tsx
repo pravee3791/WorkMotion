@@ -1,6 +1,9 @@
 
 import { BsFillCalendarDateFill, BsFillCalendar3Fill, BsFillGridFill, BsCloudDownloadFill, BsChatLeftDotsFill } from "react-icons/bs";
-
+/**
+ *  Dummy component for the UI, Doesnt render new views 
+ * @returns Simple Left natigation panel
+ */
 function Menu() {
     return (
         <div className='menu'>
