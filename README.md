@@ -24,11 +24,8 @@ Following are the salient features of the Application
     - Custom Css (no use of external CSS libraries)
         <br/>
     - Routing 
-
         <br/>
     - Unit test case coverage
-
-        <br/>
 
 Below are the external dependencies
     - React-icons for icons
