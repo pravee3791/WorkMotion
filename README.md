@@ -12,22 +12,16 @@ This is the Front End Application for the assignment for the WorkMotion. This is
         <br/>
 
 Following are the salient features of the Application 
-
         <br/>
     - Responsive for Desktop and Laptop
-
         <br/>
     - Uses the function component 
-
         <br/>
     - Uses React Context to share the data 
-
         <br/>
     - Uses Type Script
-
         <br/>
     - Custom Css (no use of external CSS libraries)
-
         <br/>
     - Routing 
 
